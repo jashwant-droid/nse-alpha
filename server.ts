@@ -38,7 +38,7 @@ app.get("/api/health", (req, res) => {
 });
 
 // 2. Screener Execution endpoint
-app.post("/api/screener", (req, res) => {
+app.post("/api/screener", async (req, res) => {
   try {
     const { sector, minScore = 0.45, topN = 7 } = req.body;
     
@@ -46,7 +46,7 @@ app.post("/api/screener", (req, res) => {
       return res.status(400).json({ error: "Sector name is required." });
     }
     
-    const stocks = runScreening(sector, minScore, topN);
+    const stocks = await runScreening(sector, minScore, topN);
     const totalFetched = SECTOR_UNIVERSE[sector]?.length || 0;
     
     const scores = stocks.map(s => s.score);
@@ -80,10 +80,10 @@ app.post("/api/screener", (req, res) => {
 });
 
 // 3. Stock Detail / Lookup Endpoint
-app.get("/api/stock/:ticker", (req, res) => {
+app.get("/api/stock/:ticker", async (req, res) => {
   try {
     const ticker = req.params.ticker;
-    const stock = findStockByTicker(ticker);
+    const stock = await findStockByTicker(ticker);
     
     if (!stock) {
       return res.status(404).json({ error: `Stock ticker '${ticker}' not found in universe.` });
@@ -121,7 +121,7 @@ app.post("/api/stock/import", async (req, res) => {
     const cleanTicker = ticker.toUpperCase().trim().replace(".NS", "");
 
     // Check if it already exists in the universe
-    const existingStock = findStockByTicker(cleanTicker);
+    const existingStock = await findStockByTicker(cleanTicker);
     if (existingStock) {
       return res.json({ success: true, alreadyExists: true, stock: existingStock });
     }
@@ -218,7 +218,7 @@ Return a JSON object exactly matching this schema:
     addStockToUniverse(finalSector, stockData);
 
     // Get the newly run stock details with full score calculations
-    const updatedStock = findStockByTicker(stockData.ticker);
+    const updatedStock = await findStockByTicker(stockData.ticker);
 
     res.json({
       success: true,
