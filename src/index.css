@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+/* Geometric Balance theme utility classes */
+.glass-panel {
+  background: #0F0F12;
+  border: 1px solid #2D2D33;
+}
+
+.glass-panel-hover {
+  transition: all 0.2s ease-in-out;
+}
+
+.glass-panel-hover:hover {
+  border-color: #6366f1;
+  background: #15151A;
+}
+
+/* Custom scrollbars matching the geometric aesthetic */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0A0A0C;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2D2D33;
+  border-radius: 0px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #6366f1;
+}
+
+/* Financial ticker glows */
+.glow-green {
+  text-shadow: 0 0 10px rgba(52, 211, 153, 0.2);
+}
+
+.glow-red {
+  text-shadow: 0 0 10px rgba(248, 113, 113, 0.2);
+}
+
+.glow-indigo {
+  text-shadow: 0 0 10px rgba(129, 140, 248, 0.2);
+}
+
+/* Table styles updated for geometric balance theme */
+.terminal-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.terminal-table th {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #8e8e93;
+  padding: 12px 16px;
+  border-bottom: 1px solid #2D2D33;
+  background-color: #15151A;
+  text-align: left;
+}
+
+.terminal-table td {
+  padding: 14px 16px;
+  font-size: 13.5px;
+  color: #E0E0E6;
+  border-bottom: 1px solid #2D2D33;
+  transition: background 0.2s ease;
+}
+
+.terminal-table tr:hover td {
+  background: #1A1A1F;
+}
+
+@keyframes pulse-soft {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.8; }
+}
+
+.pulse-glow {
+  animation: pulse-soft 3s infinite ease-in-out;
+}

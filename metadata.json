@@ -1,0 +1,6 @@
+{
+  "name": "NSE AI Stock Screener",
+  "description": "Multi-factor AI-driven stock screening tool for the Indian stock market (NSE) based on Rathore (2026) cross-sectional research.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
