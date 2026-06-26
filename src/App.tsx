@@ -246,20 +246,20 @@ export default function App() {
     : [];
 
   return (
-    <div className="min-h-screen text-[#E0E0E6] font-sans flex flex-col bg-[#0A0A0C] selection:bg-indigo-600 selection:text-white">
+    <div className="min-h-screen text-gray-800 font-sans flex flex-col bg-brand-cream selection:bg-indigo-600 selection:text-white">
       
       {/* Dynamic Stock Import Spinner Overlay */}
       {isImporting && (
-        <div className="fixed inset-0 bg-[#0A0A0C]/85 backdrop-blur-md z-[100] flex flex-col items-center justify-center p-6 text-center animate-fade-in">
-          <div className="bg-[#0F0F12] border border-indigo-500/25 rounded-sm p-8 max-w-md w-full shadow-2xl relative overflow-hidden space-y-4">
+        <div className="fixed inset-0 bg-brand-milk/80 backdrop-blur-md z-[100] flex flex-col items-center justify-center p-6 text-center animate-fade-in">
+          <div className="bg-brand-milk border border-brand-border rounded-sm p-8 max-w-md w-full shadow-2xl relative overflow-hidden space-y-4">
             <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-indigo-500 via-purple-500 to-emerald-500 animate-pulse" />
-            <div className="w-12 h-12 border-2 border-indigo-500 border-t-transparent rounded-full animate-spin mx-auto mb-2" />
-            <span className="text-[10px] font-bold text-indigo-400 uppercase tracking-widest font-mono block">Quantitative Stock Import</span>
-            <h3 className="text-base font-bold text-white uppercase tracking-wider font-display italic">Gemini 3.5 Analyst Engine Active</h3>
-            <p className="text-gray-400 text-xs leading-relaxed font-sans">
+            <div className="w-12 h-12 border-2 border-indigo-600 border-t-transparent rounded-full animate-spin mx-auto mb-2" />
+            <span className="text-[10px] font-bold text-indigo-600 uppercase tracking-widest font-mono block">Quantitative Stock Import</span>
+            <h3 className="text-base font-bold text-gray-900 uppercase tracking-wider font-display italic">Gemini 3.5 Analyst Engine Active</h3>
+            <p className="text-gray-600 text-xs leading-relaxed font-sans">
               Analyzing real-world balance sheets, current multiples, and recent momentum trends to synthesize institutional-grade factor metrics...
             </p>
-            <div className="text-[10px] text-gray-600 font-mono">
+            <div className="text-[10px] text-gray-400 font-mono">
               COMPUTING Z-SCORES · RESOLVING peer_groups.json · GENERATING WALK_PATHS
             </div>
           </div>
@@ -267,13 +267,13 @@ export default function App() {
       )}
       
       {/* HEADER SECTION */}
-      <header className="border-b border-[#2D2D33] bg-[#0F0F12] sticky top-0 z-50 px-4 md:px-8 py-3 flex flex-col sm:flex-row justify-between items-center gap-4">
+      <header className="border-b border-brand-border bg-brand-milk sticky top-0 z-50 px-4 md:px-8 py-3 flex flex-col sm:flex-row justify-between items-center gap-4">
         <div className="flex items-center gap-3">
           <div className="w-8 h-8 bg-indigo-600 rounded-sm flex items-center justify-center font-bold text-white shrink-0 font-display">α</div>
           <div>
             <div className="flex items-center gap-2">
-              <h1 className="text-sm md:text-base font-bold tracking-tight uppercase text-white font-display">NSE Alpha <span className="text-indigo-500 font-bold">Screener</span></h1>
-              <span className="bg-[#1A1A1F] border border-[#2D2D33] text-indigo-400 text-[10px] px-2 py-0.5 rounded-sm font-mono font-semibold">Rathore · 2026</span>
+              <h1 className="text-sm md:text-base font-bold tracking-tight uppercase text-gray-900 font-display">NSE Alpha <span className="text-indigo-600 font-bold">Screener</span></h1>
+              <span className="bg-brand-sand border border-brand-border text-indigo-600 text-[10px] px-2 py-0.5 rounded-sm font-mono font-semibold">Rathore · 2026</span>
             </div>
             <p className="text-[10px] text-gray-500 uppercase tracking-widest">Multi-factor decision models for Indian Equities</p>
           </div>
@@ -281,7 +281,7 @@ export default function App() {
 
         {/* Global Autocomplete Lookup Search Bar */}
         <div className="relative w-full sm:w-64 md:w-80">
-          <div className="flex items-center bg-[#0A0A0C] border border-[#2D2D33] rounded-sm px-3 py-1.5 focus-within:border-indigo-500 transition-colors">
+          <div className="flex items-center bg-brand-sand border border-brand-border rounded-sm px-3 py-1.5 focus-within:border-indigo-500 transition-colors">
             <Search size={14} className="text-gray-500 shrink-0" />
             <input
               type="text"
@@ -292,12 +292,12 @@ export default function App() {
               }}
               onFocus={() => setShowSearchDropdown(true)}
               placeholder="Search or Import (e.g. RELIANCE, TCS)..."
-              className="w-full bg-transparent border-none text-xs focus:outline-none pl-2 text-[#E0E0E6] placeholder:text-gray-600"
+              className="w-full bg-transparent border-none text-xs focus:outline-none pl-2 text-gray-900 placeholder:text-gray-400"
             />
             {searchQuery && (
               <button 
                 onClick={() => { setSearchQuery(""); setShowSearchDropdown(false); }}
-                className="text-gray-500 hover:text-white text-[11px] pr-1"
+                className="text-gray-500 hover:text-gray-800 text-[11px] pr-1"
               >
                 ✕
               </button>
@@ -306,46 +306,46 @@ export default function App() {
 
           {/* Autocomplete Dropdown list */}
           {showSearchDropdown && searchQuery.trim().length >= 1 && (
-            <div className="absolute top-full left-0 right-0 mt-1.5 bg-[#0F0F12] border border-[#2D2D33] rounded-sm overflow-hidden z-50 shadow-2xl divide-y divide-[#2D2D33]">
+            <div className="absolute top-full left-0 right-0 mt-1.5 bg-brand-milk border border-brand-border rounded-sm overflow-hidden z-50 shadow-2xl divide-y divide-gray-150">
               {filteredTickers.map(t => (
                 <button
                   key={t.ticker}
                   onClick={() => handleSearchSelect(t.ticker)}
-                  className="w-full text-left px-3.5 py-2.5 hover:bg-[#1A1A1F] flex justify-between items-center text-xs transition-colors group"
+                  className="w-full text-left px-3.5 py-2.5 hover:bg-brand-sand flex justify-between items-center text-xs transition-colors group"
                 >
                   <div>
-                    <span className="font-mono font-bold text-indigo-400 group-hover:text-indigo-300">{t.ticker}</span>
-                    <span className="text-gray-400 ml-2 group-hover:text-gray-300 truncate max-w-[150px] inline-block align-bottom">{t.name}</span>
+                    <span className="font-mono font-bold text-indigo-600 group-hover:text-indigo-700">{t.ticker}</span>
+                    <span className="text-gray-600 ml-2 group-hover:text-gray-900 truncate max-w-[150px] inline-block align-bottom">{t.name}</span>
                   </div>
-                  <span className="text-[10px] text-gray-500 bg-[#0A0A0C] px-1.5 py-0.5 rounded-sm uppercase font-semibold font-display tracking-wider border border-[#2D2D33]">{t.sector}</span>
+                  <span className="text-[10px] text-gray-500 bg-brand-sand px-1.5 py-0.5 rounded-sm uppercase font-semibold font-display tracking-wider border border-brand-border">{t.sector}</span>
                 </button>
               ))}
 
               {/* Special Import Option */}
               <button
                 onClick={() => handleImportCustomStock(searchQuery)}
-                className="w-full text-left px-3.5 py-3 bg-[#13131A] hover:bg-[#1A1A26] flex justify-between items-center text-xs transition-colors border-t border-indigo-500/10 group"
+                className="w-full text-left px-3.5 py-3 bg-indigo-50/50 hover:bg-indigo-50 flex justify-between items-center text-xs transition-colors border-t border-indigo-500/10 group"
               >
                 <div className="flex items-center gap-2">
-                  <span className="text-indigo-400 font-bold">✨</span>
-                  <span className="text-gray-300">
-                    Import <span className="font-mono font-bold text-indigo-400">"{searchQuery.toUpperCase()}"</span> via Gemini AI...
+                  <span className="text-indigo-600 font-bold">✨</span>
+                  <span className="text-gray-700">
+                    Import <span className="font-mono font-bold text-indigo-600">"{searchQuery.toUpperCase()}"</span> via Gemini AI...
                   </span>
                 </div>
-                <span className="text-[9px] text-indigo-400 bg-indigo-950/40 border border-indigo-500/20 px-1.5 py-0.5 rounded-sm font-bold uppercase tracking-wider">NEW DYNAMIC</span>
+                <span className="text-[9px] text-indigo-600 bg-indigo-50 border border-indigo-200 px-1.5 py-0.5 rounded-sm font-bold uppercase tracking-wider">NEW DYNAMIC</span>
               </button>
             </div>
           )}
         </div>
 
         {/* Central Nav Tabs */}
-        <div className="flex items-center bg-[#0A0A0C] p-1 border border-[#2D2D33] rounded-sm shrink-0">
+        <div className="flex items-center bg-brand-sand-dark p-1 border border-brand-border rounded-sm shrink-0">
           <button
             onClick={() => setActiveTab('screener')}
             className={`px-3 py-1.5 rounded-sm text-xs font-semibold flex items-center gap-1.5 transition-all ${
               activeTab === 'screener' 
                 ? 'bg-indigo-600 text-white font-display' 
-                : 'text-gray-400 hover:text-white hover:bg-[#1A1A1F]'
+                : 'text-gray-600 hover:text-gray-900 hover:bg-brand-sand/50'
             }`}
           >
             <Compass size={13} />
@@ -356,7 +356,7 @@ export default function App() {
             className={`px-3 py-1.5 rounded-sm text-xs font-semibold flex items-center gap-1.5 transition-all ${
               activeTab === 'chat' 
                 ? 'bg-indigo-600 text-white font-display' 
-                : 'text-gray-400 hover:text-white hover:bg-[#1A1A1F]'
+                : 'text-gray-600 hover:text-gray-900 hover:bg-brand-sand/50'
             }`}
           >
             <Brain size={13} />
@@ -367,7 +367,7 @@ export default function App() {
             className={`px-3 py-1.5 rounded-sm text-xs font-semibold flex items-center gap-1.5 transition-all ${
               activeTab === 'deployment' 
                 ? 'bg-indigo-600 text-white font-display' 
-                : 'text-gray-400 hover:text-white hover:bg-[#1A1A1F]'
+                : 'text-gray-600 hover:text-gray-900 hover:bg-brand-sand/50'
             }`}
           >
             <Rocket size={13} />
@@ -377,9 +377,9 @@ export default function App() {
       </header>
 
       {/* SUB-HEADER / WARNING DISCLAIMER */}
-      <div className="bg-[#15151A] border-b border-[#2D2D33] py-2 px-4 md:px-8 flex items-center gap-2">
-        <AlertTriangle size={14} className="text-yellow-500 shrink-0" />
-        <p className="text-[11px] text-gray-400 font-mono tracking-tight uppercase">
+      <div className="bg-amber-50/70 border-b border-brand-border py-2 px-4 md:px-8 flex items-center gap-2">
+        <AlertTriangle size={14} className="text-amber-600 shrink-0" />
+        <p className="text-[11px] text-amber-800 font-mono tracking-tight uppercase">
           <strong>Educational Research Tool only:</strong> Implements an academic scoring methodology for learning purposes. Always conduct independent financial advisor diligence.
         </p>
       </div>
@@ -394,10 +394,10 @@ export default function App() {
             <div className="lg:col-span-1 space-y-6">
               
               {/* SCREEN COMMAND CARD */}
-              <div className="glass-panel border border-[#2D2D33] rounded-sm p-5 space-y-5 bg-[#0F0F12]">
-                <div className="flex items-center gap-2 border-b border-[#2D2D33] pb-3">
-                  <Sliders size={16} className="text-indigo-400" />
-                  <h3 className="font-display font-semibold text-xs text-white uppercase tracking-wider">Screen Controls</h3>
+              <div className="glass-panel border border-brand-border rounded-sm p-5 space-y-5 bg-brand-milk shadow-sm">
+                <div className="flex items-center gap-2 border-b border-brand-border pb-3">
+                  <Sliders size={16} className="text-indigo-600" />
+                  <h3 className="font-display font-semibold text-xs text-gray-900 uppercase tracking-wider">Screen Controls</h3>
                 </div>
 
                 {/* Sector Selector */}
@@ -406,10 +406,10 @@ export default function App() {
                   <select
                     value={selectedSector}
                     onChange={(e) => setSelectedSector(e.target.value)}
-                    className="w-full bg-[#0A0A0C] border border-[#2D2D33] rounded-sm px-3.5 py-2.5 text-xs text-[#E0E0E6] focus:outline-none focus:border-indigo-500 transition-colors"
+                    className="w-full bg-brand-sand border border-brand-border rounded-sm px-3.5 py-2.5 text-xs text-gray-900 focus:outline-none focus:border-indigo-500 transition-colors"
                   >
                     {SECTORS.map(sec => (
-                      <option key={sec} value={sec} className="bg-[#0F0F12]">{sec}</option>
+                      <option key={sec} value={sec} className="bg-brand-milk">{sec}</option>
                     ))}
                   </select>
                 </div>
@@ -418,7 +418,7 @@ export default function App() {
                 <div className="space-y-2">
                   <div className="flex justify-between items-center">
                     <label className="text-[10px] font-semibold text-gray-500 uppercase tracking-widest font-display">Min ML Score</label>
-                    <span className="font-mono text-xs font-bold text-indigo-400">{(minScore * 100).toFixed(0)}%</span>
+                    <span className="font-mono text-xs font-bold text-indigo-600">{(minScore * 100).toFixed(0)}%</span>
                   </div>
                   <div className="px-1">
                     <input
@@ -428,7 +428,7 @@ export default function App() {
                       step="0.05"
                       value={minScore}
                       onChange={(e) => setMinScore(parseFloat(e.target.value))}
-                      className="w-full accent-indigo-600 bg-[#1A1A1F] h-1.5 rounded-none cursor-pointer"
+                      className="w-full accent-indigo-600 bg-gray-100 h-1.5 rounded-none cursor-pointer"
                     />
                   </div>
                   <p className="text-[10px] text-gray-500 leading-relaxed font-mono">Filters weaker companies relative to sector peers.</p>
@@ -438,7 +438,7 @@ export default function App() {
                 <div className="space-y-2">
                   <div className="flex justify-between items-center">
                     <label className="text-[10px] font-semibold text-gray-500 uppercase tracking-widest font-display">Top N Candidates</label>
-                    <span className="font-mono text-xs font-bold text-indigo-400">{topN}</span>
+                    <span className="font-mono text-xs font-bold text-indigo-600">{topN}</span>
                   </div>
                   <div className="px-1">
                     <input
@@ -448,7 +448,7 @@ export default function App() {
                       step="1"
                       value={topN}
                       onChange={(e) => setTopN(parseInt(e.target.value))}
-                      className="w-full accent-indigo-600 bg-[#1A1A1F] h-1.5 rounded-none cursor-pointer"
+                      className="w-full accent-indigo-600 bg-brand-sand h-1.5 rounded-none cursor-pointer"
                     />
                   </div>
                 </div>
@@ -469,10 +469,10 @@ export default function App() {
               </div>
 
               {/* METHODOLOGY WEIGHTS CARD */}
-              <div className="glass-panel border border-[#2D2D33] rounded-sm p-5 space-y-4 bg-[#0F0F12]">
+              <div className="glass-panel border border-brand-border rounded-sm p-5 space-y-4 bg-brand-milk shadow-sm">
                 <div>
                   <h4 className="font-display font-semibold text-[10px] text-gray-500 uppercase tracking-widest">Model Feature Weights</h4>
-                  <p className="text-[10px] text-gray-500 leading-relaxed">Weights from research paper Table 4, Rathore (2026)</p>
+                  <p className="text-[10px] text-gray-400 leading-relaxed">Weights from research paper Table 4, Rathore (2026)</p>
                 </div>
 
                 <div className="space-y-3">
@@ -485,11 +485,11 @@ export default function App() {
                     { name: "Leverage Safety (D/E)", weight: 5, color: "bg-slate-500" },
                   ].map(f => (
                     <div key={f.name} className="space-y-1">
-                      <div className="flex justify-between text-[11px] font-medium text-gray-300">
+                      <div className="flex justify-between text-[11px] font-medium text-gray-700">
                         <span>{f.name}</span>
                         <span className="font-mono text-gray-500">{f.weight}%</span>
                       </div>
-                      <div className="w-full h-1.5 bg-[#1A1A1F] rounded-none overflow-hidden">
+                      <div className="w-full h-1.5 bg-brand-sand rounded-none overflow-hidden">
                         <div className={`h-full ${f.color}`} style={{ width: `${f.weight}%` }} />
                       </div>
                     </div>
@@ -504,25 +504,25 @@ export default function App() {
               {/* LIVE MARKET OVERVIEW CARDS */}
               {screenResults && (
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-                  <div className="bg-[#0F0F12] border border-[#2D2D33] p-4 rounded-sm">
-                    <div className="text-[10px] text-gray-500 uppercase tracking-widest mb-1">Target Sector</div>
-                    <div className="text-base font-bold text-white truncate font-display italic">{screenResults.sector}</div>
+                  <div className="bg-brand-milk border border-brand-border p-4 rounded-sm shadow-sm">
+                    <div className="text-[10px] text-gray-500 uppercase tracking-widest mb-1 font-display font-semibold">Target Sector</div>
+                    <div className="text-base font-bold text-gray-900 truncate font-display italic">{screenResults.sector}</div>
                   </div>
-                  <div className="bg-[#0F0F12] border border-[#2D2D33] p-4 rounded-sm">
-                    <div className="text-[10px] text-gray-500 uppercase tracking-widest mb-1">Surfaced Ratio</div>
-                    <div className="text-base font-bold text-emerald-400 font-mono">
+                  <div className="bg-brand-milk border border-brand-border p-4 rounded-sm shadow-sm">
+                    <div className="text-[10px] text-gray-500 uppercase tracking-widest mb-1 font-display font-semibold">Surfaced Ratio</div>
+                    <div className="text-base font-bold text-emerald-600 font-mono">
                       {screenResults.stats.surfacedCount} / {screenResults.stats.totalFetched}
                     </div>
                   </div>
-                  <div className="bg-[#0F0F12] border border-[#2D2D33] p-4 rounded-sm">
-                    <div className="text-[10px] text-gray-500 uppercase tracking-widest mb-1">Highest Model Score</div>
-                    <div className="text-base font-bold text-indigo-400 font-mono">
+                  <div className="bg-brand-milk border border-brand-border p-4 rounded-sm shadow-sm">
+                    <div className="text-[10px] text-gray-500 uppercase tracking-widest mb-1 font-display font-semibold">Highest Model Score</div>
+                    <div className="text-base font-bold text-indigo-600 font-mono">
                       {(screenResults.stats.topScore * 100).toFixed(0)}%
                     </div>
                   </div>
-                  <div className="bg-[#0F0F12] border border-[#2D2D33] p-4 rounded-sm">
-                    <div className="text-[10px] text-gray-500 uppercase tracking-widest mb-1">Average Peer Score</div>
-                    <div className="text-base font-bold text-gray-300 font-mono">
+                  <div className="bg-brand-milk border border-brand-border p-4 rounded-sm shadow-sm">
+                    <div className="text-[10px] text-gray-500 uppercase tracking-widest mb-1 font-display font-semibold">Average Peer Score</div>
+                    <div className="text-base font-bold text-gray-700 font-mono">
                       {(screenResults.stats.averageScore * 100).toFixed(0)}%
                     </div>
                   </div>
@@ -531,16 +531,16 @@ export default function App() {
 
               {/* SEARCHED STOCK ALERT / DEEP DIVE FOCUS */}
               {searchedStock && (
-                <div className="bg-[#15151A] border border-[#2D2D33] p-4 rounded-sm flex flex-col md:flex-row justify-between items-start md:items-center gap-3">
+                <div className="bg-indigo-50/70 border border-indigo-150 p-4 rounded-sm flex flex-col md:flex-row justify-between items-start md:items-center gap-3 shadow-sm">
                   <div>
-                    <span className="text-[9px] bg-[#0A0A0C] border border-[#2D2D33] text-indigo-400 font-mono font-bold px-2 py-0.5 rounded-sm uppercase">Focused Stock Profile</span>
-                    <h3 className="text-base font-bold text-white font-display mt-1 italic">{searchedStock.name} ({searchedStock.ticker})</h3>
-                    <p className="text-xs text-gray-500">Listed under {searchedStock.sector} sector • Market Cap: ₹{searchedStock.marketCapB}B INR</p>
+                    <span className="text-[9px] bg-brand-milk border border-indigo-200 text-indigo-600 font-mono font-bold px-2 py-0.5 rounded-sm uppercase">Focused Stock Profile</span>
+                    <h3 className="text-base font-bold text-gray-900 font-display mt-1 italic">{searchedStock.name} ({searchedStock.ticker})</h3>
+                    <p className="text-xs text-gray-600">Listed under {searchedStock.sector} sector • Market Cap: ₹{searchedStock.marketCapB}B INR</p>
                   </div>
                   <div className="flex gap-2">
                     <button 
                       onClick={() => { setSearchedStock(null); setExpandedStock(null); }}
-                      className="text-xs bg-[#0A0A0C] hover:bg-[#1A1A1F] border border-[#2D2D33] rounded-sm px-4 py-2 text-gray-400 transition-colors cursor-pointer"
+                      className="text-xs bg-white hover:bg-gray-50 border border-gray-200 rounded-sm px-4 py-2 text-gray-600 transition-colors cursor-pointer"
                     >
                       Clear Focus
                     </button>
@@ -548,7 +548,7 @@ export default function App() {
                       onClick={() => handleToggleCompare(searchedStock)}
                       className={`text-xs rounded-sm px-4 py-2 border transition-colors flex items-center gap-1.5 cursor-pointer ${
                         compareStocks.some(s => s.ticker === searchedStock.ticker)
-                          ? 'bg-emerald-950/40 text-emerald-400 border-emerald-500/20'
+                          ? 'bg-emerald-50 text-emerald-700 border-emerald-200'
                           : 'bg-indigo-600 hover:bg-indigo-500 border-indigo-500/20 text-white'
                       }`}
                     >
@@ -560,17 +560,17 @@ export default function App() {
               )}
 
               {/* SCREENER RESULTS TABLE */}
-              <div className="border border-[#2D2D33] rounded-sm bg-[#0F0F12] overflow-hidden">
-                <div className="px-5 py-4 border-b border-[#2D2D33] bg-[#15151A] flex flex-col sm:flex-row justify-between items-center gap-3">
+              <div className="border border-brand-border rounded-sm bg-brand-milk overflow-hidden shadow-sm">
+                <div className="px-5 py-4 border-b border-brand-border bg-brand-sand flex flex-col sm:flex-row justify-between items-center gap-3">
                   <div className="flex items-center gap-2">
                     <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-                    <span className="text-xs font-semibold text-[#E0E0E6] font-display uppercase tracking-wider">Rathore Screener Output</span>
+                    <span className="text-xs font-semibold text-gray-800 font-display uppercase tracking-wider">Rathore Screener Output</span>
                   </div>
                   {screenResults && (
                     <div className="flex gap-2">
                       <button
                         onClick={handleExportCSV}
-                        className="text-xs text-gray-400 hover:text-white bg-[#0A0A0C] border border-[#2D2D33] px-3 py-1.5 rounded-sm transition-all flex items-center gap-1.5 cursor-pointer"
+                        className="text-xs text-gray-600 hover:text-gray-900 bg-brand-milk border border-brand-border px-3 py-1.5 rounded-sm transition-all flex items-center gap-1.5 cursor-pointer shadow-sm"
                       >
                         <Download size={13} />
                         Export CSV
@@ -580,14 +580,14 @@ export default function App() {
                 </div>
 
                 {isLoadingScreen ? (
-                  <div className="py-24 text-center space-y-3 bg-[#0F0F12]">
-                    <RefreshCw size={36} className="text-indigo-400 animate-spin mx-auto" />
+                  <div className="py-24 text-center space-y-3 bg-brand-milk">
+                    <RefreshCw size={36} className="text-indigo-600 animate-spin mx-auto" />
                     <p className="text-gray-500 text-xs font-mono">Screening stock metrics & computing cross-sectional Z-scores...</p>
                   </div>
                 ) : screenError ? (
-                  <div className="p-8 text-center space-y-3 bg-[#0F0F12]">
-                    <CircleAlert size={36} className="text-red-400 mx-auto" />
-                    <p className="text-sm text-red-300 font-semibold">{screenError}</p>
+                  <div className="p-8 text-center space-y-3 bg-brand-milk">
+                    <CircleAlert size={36} className="text-red-500 mx-auto" />
+                    <p className="text-sm text-red-600 font-semibold">{screenError}</p>
                     <button
                       onClick={() => handleRunScreen()}
                       className="text-xs bg-indigo-600 hover:bg-indigo-500 text-white px-4 py-2 rounded-sm cursor-pointer"
@@ -596,35 +596,35 @@ export default function App() {
                     </button>
                   </div>
                 ) : screenResults && screenResults.stocks.length === 0 ? (
-                  <div className="py-16 text-center space-y-2 bg-[#0F0F12]">
-                    <ShieldAlert size={36} className="text-gray-500 mx-auto" />
-                    <h4 className="font-bold text-white text-sm">No Stocks Cleared Filter</h4>
+                  <div className="py-16 text-center space-y-2 bg-brand-milk">
+                    <ShieldAlert size={36} className="text-gray-400 mx-auto" />
+                    <h4 className="font-bold text-gray-800 text-sm">No Stocks Cleared Filter</h4>
                     <p className="text-gray-500 text-xs max-w-xs mx-auto">Lower the "Min ML Score" filter threshold in the sidebar to surface more companies.</p>
                   </div>
                 ) : screenResults ? (
                   <div className="overflow-x-auto">
                     <table className="w-full text-left border-collapse">
                       <thead>
-                        <tr className="bg-[#15151A] border-b border-[#2D2D33] text-[10px] font-bold text-gray-500 uppercase tracking-widest font-display">
+                        <tr className="bg-brand-sand border-b border-brand-border text-[10px] font-bold text-gray-500 uppercase tracking-widest font-display">
                           <th className="p-4 w-12 text-center">Rank</th>
                           <th className="p-4">Company</th>
                           <th className="p-4">Price</th>
                           <th className="p-4 text-center">ML Score</th>
                           <th className="p-4">P/E</th>
                           <th className="p-4">P/B</th>
-                          <th className="p-4 text-emerald-400">ROE</th>
-                          <th className="p-4 text-sky-400">Rev Gr</th>
-                          <th className="p-4 text-indigo-400">6M Mom</th>
+                          <th className="p-4 text-emerald-600">ROE</th>
+                          <th className="p-4 text-sky-600">Rev Gr</th>
+                          <th className="p-4 text-indigo-600">6M Mom</th>
                           <th className="p-4 text-center">Compare</th>
                         </tr>
                       </thead>
-                      <tbody className="divide-y divide-[#2D2D33] font-mono text-xs text-[#E0E0E6]">
+                      <tbody className="divide-y divide-brand-border font-mono text-xs text-gray-700">
                         {screenResults.stocks.map((s, idx) => {
                           const isExpanded = expandedStock === s.ticker;
                           const isInCompare = compareStocks.some(c => c.ticker === s.ticker);
                           
                           // Determine metric highlight profiles
-                          const scoreColorClass = s.score >= 0.70 ? 'text-emerald-400 bg-emerald-950/20 border-emerald-500/20' : (s.score >= 0.50 ? 'text-indigo-400 bg-indigo-950/20 border-indigo-500/20' : 'text-gray-400 bg-[#1A1A1F] border-[#2D2D33]');
+                          const scoreColorClass = s.score >= 0.70 ? 'text-emerald-700 bg-emerald-50 border-emerald-200' : (s.score >= 0.50 ? 'text-indigo-700 bg-indigo-50 border-indigo-200' : 'text-gray-500 bg-gray-50 border-gray-200');
                           
                           return (
                             <React.Fragment key={s.ticker}>
@@ -632,19 +632,19 @@ export default function App() {
                               <tr 
                                 onClick={() => setExpandedStock(isExpanded ? null : s.ticker)}
                                 className={`cursor-pointer transition-colors ${
-                                  isExpanded ? 'bg-[#15151A]' : 'hover:bg-[#1A1A1F]'
+                                  isExpanded ? 'bg-indigo-50/20' : 'hover:bg-brand-sand'
                                 }`}
                               >
-                                <td className="p-4 text-center font-bold font-display text-gray-500">
+                                <td className="p-4 text-center font-bold font-display text-gray-400">
                                   #{s.rank || idx + 1}
                                 </td>
                                 <td className="p-4">
-                                  <div className="font-display font-semibold text-sm text-white">{s.name}</div>
+                                  <div className="font-display font-semibold text-sm text-gray-900">{s.name}</div>
                                   <div className="text-[10px] text-gray-500 font-mono">{s.ticker}.NS</div>
                                 </td>
-                                <td className="p-4 font-bold text-[#E0E0E6]">
+                                <td className="p-4 font-bold text-gray-900">
                                   <div>₹{s.price.toLocaleString('en-IN')}</div>
-                                  <div className={`text-[10px] ${s.change24h >= 0 ? 'text-emerald-400' : 'text-red-400'}`}>
+                                  <div className={`text-[10px] ${s.change24h >= 0 ? 'text-emerald-600' : 'text-red-500'}`}>
                                     {s.change24h >= 0 ? '+' : ''}{s.change24h}%
                                   </div>
                                 </td>
@@ -653,18 +653,18 @@ export default function App() {
                                     {(s.score * 100).toFixed(0)}%
                                   </span>
                                 </td>
-                                <td className="p-4 text-[#E0E0E6]">{s.pe.toFixed(1)}x</td>
-                                <td className="p-4 text-[#E0E0E6]">{s.pb.toFixed(2)}x</td>
-                                <td className="p-4 text-emerald-400 font-semibold">{s.roe.toFixed(1)}%</td>
-                                <td className="p-4 text-sky-400 font-semibold">+{s.revGrowth.toFixed(1)}%</td>
-                                <td className="p-4 text-indigo-400 font-semibold">+{s.momentum6m.toFixed(1)}%</td>
+                                <td className="p-4 text-gray-700">{s.pe.toFixed(1)}x</td>
+                                <td className="p-4 text-gray-700">{s.pb.toFixed(2)}x</td>
+                                <td className="p-4 text-emerald-600 font-semibold">{s.roe.toFixed(1)}%</td>
+                                <td className="p-4 text-sky-600 font-semibold">+{s.revGrowth.toFixed(1)}%</td>
+                                <td className="p-4 text-indigo-600 font-semibold">+{s.momentum6m.toFixed(1)}%</td>
                                 <td className="p-4 text-center" onClick={(e) => e.stopPropagation()}>
                                   <button
                                     onClick={() => handleToggleCompare(s)}
                                     className={`p-2 rounded-sm border transition-all cursor-pointer ${
                                       isInCompare 
                                         ? 'bg-indigo-600 text-white border-indigo-500/20' 
-                                        : 'text-gray-500 border-[#2D2D33] hover:text-indigo-400 hover:border-indigo-500/20 bg-[#0A0A0C]'
+                                        : 'text-gray-400 border-gray-200 hover:text-indigo-600 hover:border-indigo-200 bg-gray-50'
                                     }`}
                                     title={isInCompare ? "Remove from Compare" : "Add to Compare"}
                                   >
@@ -676,33 +676,33 @@ export default function App() {
                               {/* Expanded stock deep-dive panel */}
                               {isExpanded && (
                                 <tr>
-                                  <td colSpan={10} className="p-5 bg-[#0A0A0C] border-y border-[#2D2D33]">
+                                  <td colSpan={10} className="p-5 bg-brand-sand/30 border-y border-brand-border">
                                     <div className="space-y-6">
                                       
                                       {/* Technical Stats overview */}
                                       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-xs">
-                                        <div className="bg-[#0F0F12] p-3 rounded-sm border border-[#2D2D33]">
+                                        <div className="bg-brand-milk p-3 rounded-sm border border-brand-border shadow-sm">
                                           <div className="text-gray-500 mb-0.5 font-display text-[10px] uppercase tracking-widest">52W High Estimate</div>
-                                          <div className="font-bold text-sm text-white font-mono">₹{(s.price * 1.18).toLocaleString('en-IN', {maximumFractionDigits:0})}</div>
+                                          <div className="font-bold text-sm text-gray-900 font-mono">₹{(s.price * 1.18).toLocaleString('en-IN', {maximumFractionDigits:0})}</div>
                                         </div>
-                                        <div className="bg-[#0F0F12] p-3 rounded-sm border border-[#2D2D33]">
+                                        <div className="bg-brand-milk p-3 rounded-sm border border-brand-border shadow-sm">
                                           <div className="text-gray-500 mb-0.5 font-display text-[10px] uppercase tracking-widest">Historical Volatility</div>
-                                          <div className="font-bold text-sm text-[#E0E0E6] font-mono">18.4% Ann.</div>
+                                          <div className="font-bold text-sm text-gray-800 font-mono">18.4% Ann.</div>
                                         </div>
-                                        <div className="bg-[#0F0F12] p-3 rounded-sm border border-[#2D2D33]">
+                                        <div className="bg-brand-milk p-3 rounded-sm border border-brand-border shadow-sm">
                                           <div className="text-gray-500 mb-0.5 font-display text-[10px] uppercase tracking-widest">Debt / Equity Profile</div>
-                                          <div className={`font-bold text-sm font-mono ${s.de < 0.2 ? 'text-emerald-400' : 'text-[#E0E0E6]'}`}>
+                                          <div className={`font-bold text-sm font-mono ${s.de < 0.2 ? 'text-emerald-600' : 'text-gray-800'}`}>
                                             {s.de === 0 ? "Debt-Free" : s.de.toFixed(2)}
                                           </div>
                                         </div>
-                                        <div className="bg-[#0F0F12] p-3 rounded-sm border border-[#2D2D33]">
+                                        <div className="bg-brand-milk p-3 rounded-sm border border-brand-border shadow-sm">
                                           <div className="text-gray-500 mb-0.5 font-display text-[10px] uppercase tracking-widest">Market Valuation Cap</div>
-                                          <div className="font-bold text-sm text-[#E0E0E6] font-mono">₹{s.marketCapB}B INR</div>
+                                          <div className="font-bold text-sm text-gray-800 font-mono">₹{s.marketCapB}B INR</div>
                                         </div>
                                       </div>
 
                                       {/* Methodology explanation box */}
-                                      <div className="p-3.5 bg-[#15151A] border-l-4 border-indigo-500 rounded-sm text-xs leading-relaxed text-[#E0E0E6]">
+                                      <div className="p-3.5 bg-indigo-50/50 border-l-4 border-indigo-500 rounded-sm text-xs leading-relaxed text-gray-700">
                                         💡 <strong>Multi-Factor Justification:</strong> {s.reason}
                                       </div>
 
@@ -710,37 +710,38 @@ export default function App() {
                                       <div className="space-y-2">
                                         <div className="flex justify-between items-center">
                                           <span className="text-[10px] font-semibold text-gray-500 uppercase tracking-widest font-display">1-Year Historical Price (Daily Trend)</span>
-                                          <span className="text-[10px] text-gray-500 font-mono">Dynamic Random-Walk Ticks Active</span>
+                                          <span className="text-[10px] text-gray-400 font-mono">Dynamic Random-Walk Ticks Active</span>
                                         </div>
-                                        <div className="h-56 w-full bg-[#0F0F12] rounded-sm border border-[#2D2D33] p-2">
+                                        <div className="h-56 w-full bg-brand-milk rounded-sm border border-brand-border p-2 shadow-sm">
                                           <ResponsiveContainer width="100%" height="100%">
                                             <AreaChart data={s.historicalData}>
                                               <defs>
                                                 <linearGradient id="priceGlow" x1="0" y1="0" x2="0" y2="1">
-                                                  <stop offset="5%" stopColor="#6366f1" stopOpacity={0.2}/>
+                                                  <stop offset="5%" stopColor="#6366f1" stopOpacity={0.15}/>
                                                   <stop offset="95%" stopColor="#6366f1" stopOpacity={0.0}/>
                                                 </linearGradient>
                                               </defs>
-                                              <CartesianGrid strokeDasharray="3 3" stroke="#2D2D33" opacity={0.5} />
+                                              <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" opacity={0.6} />
                                               <XAxis 
                                                 dataKey="date" 
                                                 tick={{ fill: '#64748b', fontSize: 9, fontFamily: 'JetBrains Mono' }}
-                                                stroke="#2D2D33"
+                                                stroke="#cbd5e1"
                                               />
                                               <YAxis 
                                                 domain={['auto', 'auto']}
                                                 tick={{ fill: '#64748b', fontSize: 9, fontFamily: 'JetBrains Mono' }}
                                                 tickFormatter={(v) => `₹${v}`}
-                                                stroke="#2D2D33"
+                                                stroke="#cbd5e1"
                                               />
                                               <RechartsTooltip 
                                                 contentStyle={{
-                                                  backgroundColor: '#0F0F12',
-                                                  borderColor: '#2D2D33',
-                                                  borderRadius: '0px',
-                                                  color: '#E0E0E6',
+                                                  backgroundColor: '#ffffff',
+                                                  borderColor: '#cbd5e1',
+                                                  borderRadius: '4px',
+                                                  color: '#1f2937',
                                                   fontFamily: 'JetBrains Mono',
-                                                  fontSize: '11px'
+                                                  fontSize: '11px',
+                                                  boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)'
                                                 }}
                                                 formatter={(val: any) => [`₹${parseFloat(val).toLocaleString('en-IN')}`, 'Close Price']}
                                               />
@@ -758,7 +759,7 @@ export default function App() {
                                       </div>
 
                                       {/* AI Analyst Report Button & Generator */}
-                                      <div className="pt-2 border-t border-[#2D2D33]">
+                                      <div className="pt-2 border-t border-gray-200">
                                         {!activeReport && !isLoadingReport && (
                                           <div className="flex justify-between items-center flex-wrap gap-2">
                                             <span className="text-xs text-gray-500 font-mono uppercase tracking-tight">Need deep analysis? Request automated research paper drafted by server-side Gemini.</span>
@@ -773,43 +774,43 @@ export default function App() {
                                         )}
 
                                         {isLoadingReport && (
-                                          <div className="py-8 text-center space-y-2 bg-[#0F0F12] border border-[#2D2D33] rounded-sm">
-                                            <RefreshCw size={24} className="text-indigo-400 animate-spin mx-auto" />
+                                          <div className="py-8 text-center space-y-2 bg-brand-milk border border-brand-border rounded-sm">
+                                            <RefreshCw size={24} className="text-indigo-600 animate-spin mx-auto" />
                                             <p className="text-xs text-gray-500 font-mono uppercase tracking-widest">Gemini is drafting formal institutional equity report...</p>
                                           </div>
                                         )}
 
                                         {reportError && (
-                                          <div className="p-3 bg-red-950/20 border border-red-500/20 rounded-sm text-xs text-red-400">
+                                          <div className="p-3 bg-red-50 border border-red-200 rounded-sm text-xs text-red-600">
                                             {reportError}
                                           </div>
                                         )}
 
                                         {activeReport && activeReport.ticker === s.ticker && (
-                                          <div className="bg-[#0F0F12] border border-[#2D2D33] rounded-sm p-5 space-y-4 shadow-2xl relative">
+                                          <div className="bg-brand-milk border border-brand-border rounded-sm p-5 space-y-4 shadow-2xl relative">
                                             {/* Report Title Header */}
-                                            <div className="flex justify-between items-start border-b border-[#2D2D33] pb-4 flex-wrap gap-3">
+                                            <div className="flex justify-between items-start border-b border-brand-border pb-4 flex-wrap gap-3">
                                               <div>
-                                                <div className="text-[10px] font-bold text-indigo-400 uppercase tracking-widest font-mono">GEMINI INSTITUTIONAL RESEARCH PAPER</div>
-                                                <h4 className="text-lg font-bold text-white font-display mt-0.5 italic">Equity Research: {activeReport.name}</h4>
+                                                <div className="text-[10px] font-bold text-indigo-600 uppercase tracking-widest font-mono">GEMINI INSTITUTIONAL RESEARCH PAPER</div>
+                                                <h4 className="text-lg font-bold text-gray-900 font-display mt-0.5 italic">Equity Research: {activeReport.name}</h4>
                                                 <p className="text-[10px] text-gray-500 font-mono">Generated: {new Date().toLocaleDateString()} • SECID-#{s.ticker}-NSE</p>
                                               </div>
                                               <div className="flex gap-4">
                                                 <div>
                                                   <div className="text-[9px] text-gray-500 font-display font-semibold uppercase tracking-wider">Recommendation</div>
-                                                  <span className="bg-emerald-950/40 border border-emerald-500/30 text-emerald-400 text-xs font-bold px-2.5 py-1 rounded-sm uppercase inline-block mt-1">
+                                                  <span className="bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-bold px-2.5 py-1 rounded-sm uppercase inline-block mt-1">
                                                     {activeReport.recommendation}
                                                   </span>
                                                 </div>
                                                 <div>
                                                   <div className="text-[9px] text-gray-500 font-display font-semibold uppercase tracking-wider">Risk Rating</div>
-                                                  <span className="bg-indigo-950/40 border border-indigo-500/30 text-indigo-400 text-xs font-bold px-2.5 py-1 rounded-sm uppercase inline-block mt-1">
+                                                  <span className="bg-indigo-50 border border-indigo-200 text-indigo-700 text-xs font-bold px-2.5 py-1 rounded-sm uppercase inline-block mt-1">
                                                     {activeReport.riskRating}
                                                   </span>
                                                 </div>
                                                 <div>
                                                   <div className="text-[9px] text-gray-500 font-display font-semibold uppercase tracking-wider">1Y Price Target</div>
-                                                  <span className="text-white font-mono font-bold text-sm block mt-1">
+                                                  <span className="text-gray-900 font-mono font-bold text-sm block mt-1">
                                                     ₹{activeReport.priceTarget.toLocaleString('en-IN')}
                                                   </span>
                                                 </div>
@@ -817,29 +818,29 @@ export default function App() {
                                             </div>
 
                                             {/* Report Markdown Content */}
-                                            <div className="text-sm text-[#E0E0E6] leading-relaxed space-y-3 prose prose-invert max-w-none font-sans">
+                                            <div className="text-sm text-gray-755 leading-relaxed space-y-3 prose max-w-none font-sans">
                                               {activeReport.report.split('\n').map((line, rIdx) => {
                                                 if (line.startsWith('### ')) {
-                                                  return <h5 key={rIdx} className="text-sm font-semibold text-white font-display mt-4 mb-2">{line.replace('### ', '')}</h5>;
+                                                  return <h5 key={rIdx} className="text-sm font-semibold text-gray-900 font-display mt-4 mb-2">{line.replace('### ', '')}</h5>;
                                                 }
                                                 if (line.startsWith('## ')) {
-                                                  return <h4 key={rIdx} className="text-xs font-bold text-indigo-400 font-display uppercase tracking-wider mt-5 mb-2.5 border-b border-[#2D2D33] pb-1">{line.replace('## ', '')}</h4>;
+                                                  return <h4 key={rIdx} className="text-xs font-bold text-indigo-600 font-display uppercase tracking-wider mt-5 mb-2.5 border-b border-gray-200 pb-1">{line.replace('## ', '')}</h4>;
                                                 }
                                                 if (line.startsWith('- ') || line.startsWith('* ')) {
-                                                  return <li key={rIdx} className="ml-4 list-disc text-xs text-[#E0E0E6] mb-1 leading-relaxed">{line.substring(2)}</li>;
+                                                  return <li key={rIdx} className="ml-4 list-disc text-xs text-gray-700 mb-1 leading-relaxed">{line.substring(2)}</li>;
                                                 }
                                                 if (line.trim() === "") return <div key={rIdx} className="h-2" />;
                                                 
-                                                return <p key={rIdx} className="text-xs text-gray-400 mb-2 leading-relaxed">{line}</p>;
+                                                return <p key={rIdx} className="text-xs text-gray-600 mb-2 leading-relaxed">{line}</p>;
                                               })}
                                             </div>
 
                                             {/* Footer sign-off */}
-                                            <div className="pt-3 border-t border-[#2D2D33] flex justify-between items-center text-[10px] text-gray-500 uppercase tracking-widest font-mono">
+                                            <div className="pt-3 border-t border-brand-border flex justify-between items-center text-[10px] text-gray-500 uppercase tracking-widest font-mono">
                                               <span>Analyst Sign-off: Rathore AI Automated Research Desk</span>
                                               <button 
                                                 onClick={() => window.print()}
-                                                className="hover:text-indigo-400 transition-colors flex items-center gap-1 cursor-pointer"
+                                                className="hover:text-indigo-600 transition-colors flex items-center gap-1 cursor-pointer"
                                               >
                                                 <Printer size={10} /> Print Report
                                               </button>
@@ -862,15 +863,15 @@ export default function App() {
 
               {/* SIDE-BY-SIDE MULTI-FACTOR COMPARE BOARD */}
               <div className="space-y-3">
-                <div className="flex justify-between items-center border-b border-[#2D2D33] pb-2">
+                <div className="flex justify-between items-center border-b border-brand-border pb-2">
                   <div className="flex items-center gap-2">
-                    <Star size={16} className="text-indigo-400" />
-                    <h3 className="font-display font-semibold text-xs text-white uppercase tracking-wider">Factor Compare Board</h3>
+                    <Star size={16} className="text-indigo-600" />
+                    <h3 className="font-display font-semibold text-xs text-gray-900 uppercase tracking-wider">Factor Compare Board</h3>
                   </div>
                   {compareStocks.length > 0 && (
                     <button
                       onClick={() => setCompareStocks([])}
-                      className="text-xs text-gray-500 hover:text-red-400 transition-colors cursor-pointer"
+                      className="text-xs text-gray-500 hover:text-red-500 transition-colors cursor-pointer"
                     >
                       Clear All ({compareStocks.length})
                     </button>
@@ -892,21 +893,21 @@ export default function App() {
         {activeTab === 'chat' && (
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
             {/* Quick Context sidebar */}
-            <div className="lg:col-span-1 bg-[#0F0F12] border border-[#2D2D33] rounded-sm p-5 space-y-4 h-fit">
-              <div className="flex items-center gap-2 text-indigo-400 border-b border-[#2D2D33] pb-3">
+            <div className="lg:col-span-1 bg-brand-milk border border-brand-border rounded-sm p-5 space-y-4 h-fit shadow-sm">
+              <div className="flex items-center gap-2 text-indigo-600 border-b border-brand-border pb-3">
                 <Brain size={16} />
-                <h4 className="font-display font-semibold text-xs text-white uppercase tracking-wider">Methodology Review</h4>
+                <h4 className="font-display font-semibold text-xs text-gray-900 uppercase tracking-wider">Methodology Review</h4>
               </div>
-              <p className="text-xs text-gray-400 leading-relaxed">
+              <p className="text-xs text-gray-600 leading-relaxed">
                 Rathore (2026) implements dynamic, cross-sectional evaluation where stocks are graded exclusively against active sector peers.
               </p>
               <div className="space-y-3 pt-1 text-xs">
-                <div className="p-3 bg-[#0A0A0C] border border-[#2D2D33] rounded-sm space-y-1">
-                  <div className="font-bold text-[11px] text-white">Cross-Sectional Z-Score</div>
+                <div className="p-3 bg-brand-sand border border-brand-border rounded-sm space-y-1">
+                  <div className="font-bold text-[11px] text-gray-900">Cross-Sectional Z-Score</div>
                   <p className="text-gray-500 text-[10.5px]">Normalises metrics within sectors so that outliers do not skew evaluations.</p>
                 </div>
-                <div className="p-3 bg-[#0A0A0C] border border-[#2D2D33] rounded-sm space-y-1">
-                  <div className="font-bold text-[11px] text-white">Multimodal Fusion</div>
+                <div className="p-3 bg-brand-sand border border-brand-border rounded-sm space-y-1">
+                  <div className="font-bold text-[11px] text-gray-900">Multimodal Fusion</div>
                   <p className="text-gray-500 text-[10.5px]">Combines value, momentum, growth, and leverage aspects simultaneously.</p>
                 </div>
               </div>
@@ -945,12 +946,22 @@ export default function App() {
       </main>
 
       {/* FOOTER SECTION */}
-      <footer className="border-t border-[#2D2D33] bg-[#15151A] py-6 px-4 md:px-8 flex flex-col md:flex-row justify-between items-center gap-4 mt-12 font-mono text-[10px] tracking-wider uppercase">
+      <footer className="border-t border-brand-border bg-brand-milk py-6 px-4 md:px-8 flex flex-col md:flex-row justify-between items-center gap-4 mt-12 font-mono text-[10px] tracking-wider uppercase shadow-inner">
         <div className="text-center md:text-left space-y-1">
-          <div className="font-semibold text-xs text-indigo-400 font-display">NSE Alpha Screener</div>
-          <p className="text-[10px] text-gray-500">Based on published research: "AI-Driven Stock Screening in Indian Equity Markets" (Rathore, 2026).</p>
+          <div className="font-semibold text-xs text-indigo-600 font-display">NSE Alpha Screener</div>
+          <p className="text-[10px] text-gray-500">
+            Based on published research:{" "}
+            <a 
+              href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6932218" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="text-indigo-600 hover:text-indigo-800 underline font-semibold transition-colors"
+            >
+              "AI-Driven Stock Screening in Indian Equity Markets" (Rathore, 2026)
+            </a>.
+          </p>
         </div>
-        <div className="text-center md:text-right text-[10px] text-gray-600 space-y-1">
+        <div className="text-center md:text-right text-[10px] text-gray-500 space-y-1">
           <div>Source: official exchange feed (delayed 15m) • network: synced</div>
           <div>Created by Jashwant Singh Rathore • Powered by Gemini</div>
         </div>
